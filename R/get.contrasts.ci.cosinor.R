@@ -28,7 +28,7 @@ get.contrasts.ci.cosinor<-function(fit,contrast.frm, nsim=500,parallel = "multic
 
   ## bootstrap to get contrasts
   t0<-Sys.time()
-  doMC::registerDoMC(8)
+  doSNOW::registerDoSNOW(8)
   boot.cont<-bootMer(fit,
                      FUN = create.boot.FUN.cont(contrast.frm=contrast.frm),
                      nsim =nsim,
